@@ -5,8 +5,8 @@ channel = "stable-25_05"
 packages = ["openssl", "postgresql"]
 
 [deployment]
-deploymentTarget = "static"
-publicDir = "agentic-slm-sbachatbot4u .replit.app"
+deploymentTarget = "cloudrun"
+run = ["sh", "-c", "open"]
 
 [workflows]
 runButton = "Project"
