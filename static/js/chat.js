@@ -166,10 +166,21 @@
         if (sources && sources.length > 0 && !isError) {
             const sourcesDiv = document.createElement('div');
             sourcesDiv.className = 'sources';
-            sourcesDiv.innerHTML = `
-                <strong>Sources:</strong><br>
-                ${sources.map(source => `<i class="fas fa-file-alt me-1"></i>${source}`).join('<br>')}
-            `;
+            
+            const sourcesLabel = document.createElement('strong');
+            sourcesLabel.textContent = 'Sources:';
+            sourcesDiv.appendChild(sourcesLabel);
+            sourcesDiv.appendChild(document.createElement('br'));
+            
+            sources.forEach((source, index) => {
+                const sourceItem = document.createElement('div');
+                const icon = document.createElement('i');
+                icon.className = 'fas fa-file-alt me-1';
+                sourceItem.appendChild(icon);
+                sourceItem.appendChild(document.createTextNode(source));
+                sourcesDiv.appendChild(sourceItem);
+            });
+            
             messageDiv.appendChild(sourcesDiv);
         }
         
