@@ -89,8 +89,8 @@ def get_predefined_question():
 
 @app.errorhandler(404)
 def not_found_error(error):
-    return render_template('base.html'), 404
+    return render_template('404.html'), 404
 
 @app.errorhandler(500)
 def internal_error(error):
-    return render_template('base.html'), 500
+    return render_template('500.html'), 500

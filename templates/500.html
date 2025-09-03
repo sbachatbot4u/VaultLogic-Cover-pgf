@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block title %}Server Error - VaultLogic{% endblock %}
+
+{% block content %}
+<div class="container mt-5 pt-5 text-center">
+    <div class="row justify-content-center">
+        <div class="col-lg-6">
+            <div class="error-page">
+                <h1 class="display-1 text-danger">500</h1>
+                <h2 class="mb-4">Internal Server Error</h2>
+                <p class="lead mb-4">Something went wrong on our end. Our team has been notified and is working to fix this issue.</p>
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="{{ url_for('index') }}" class="btn btn-primary me-md-2">
+                        <i class="fas fa-home me-2"></i>Go Home
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-primary">
+                        <i class="fas fa-envelope me-2"></i>Contact Support
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.error-page {
+    padding: 60px 0;
+}
+.error-page h1 {
+    font-size: 8rem;
+    font-weight: bold;
+    opacity: 0.5;
+}
+</style>
+{% endblock %}
