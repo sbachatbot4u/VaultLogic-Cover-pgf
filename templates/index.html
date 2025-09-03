@@ -1,0 +1,407 @@
+{% extends "base.html" %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-6">
+                <div class="hero-content">
+                    <div class="badge bg-light text-dark mb-3 px-3 py-2">
+                        <i class="fas fa-percentage me-1"></i>100% Offline Processing
+                    </div>
+                    <h1 class="display-4 fw-bold mb-4">Your Information, Your Answers!</h1>
+                    <p class="lead mb-4">From Question to Verified Answer — Faster, Safer, Smarter</p>
+                    <p class="mb-4">Extract insights from your company documents with enterprise-grade AI that processes everything locally. No data leaves your infrastructure.</p>
+                    
+                    <div class="d-flex flex-wrap gap-3 mb-4">
+                        <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg px-4">
+                            <i class="fas fa-play me-2"></i>Start Free Trial
+                        </a>
+                        <a href="{{ url_for('demo') }}" class="btn btn-outline-light btn-lg px-4">
+                            <i class="fas fa-play-circle me-2"></i>Watch Demo
+                        </a>
+                    </div>
+                    
+                    <div class="d-flex flex-wrap gap-3">
+                        <div class="badge bg-success fs-6 px-3 py-2">
+                            <i class="fas fa-shield-check me-1"></i>SOC 2 Compliant
+                        </div>
+                        <div class="badge bg-success fs-6 px-3 py-2">
+                            <i class="fas fa-user-shield me-1"></i>GDPR Ready
+                        </div>
+                        <div class="badge bg-success fs-6 px-3 py-2">
+                            <i class="fas fa-server me-1"></i>On-Premise
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="hero-demo bg-white rounded-3 shadow-lg p-4 text-dark">
+                    <div class="d-flex align-items-center mb-3">
+                        <div class="bg-success rounded-circle p-2 me-3">
+                            <i class="fas fa-comments text-white"></i>
+                        </div>
+                        <div>
+                            <h6 class="mb-0">Document Intelligence Chat</h6>
+                            <small class="text-success">
+                                <i class="fas fa-circle me-1"></i>Local GPU Active
+                            </small>
+                        </div>
+                    </div>
+                    
+                    <p class="text-muted mb-3">Ask questions about your company documents and get instant, cited answers.</p>
+                    
+                    <div class="chat-example bg-light rounded p-3 mb-3">
+                        <div class="mb-2">
+                            <strong>Q:</strong> What are our Q3 revenue projections?
+                        </div>
+                        <div class="text-muted">
+                            Based on financial_report_q3.pdf, projected revenue is $2.4M with 15% growth over Q2. 
+                            <small class="text-primary">Source: Page 12, Section 3.2</small>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex gap-3">
+                            <div class="badge bg-primary">
+                                <i class="fas fa-offline me-1"></i>100% Offline
+                            </div>
+                            <div class="badge bg-info">
+                                <i class="fas fa-cog me-1"></i>Processing offline
+                            </div>
+                        </div>
+                        <small class="text-muted">Documents: 24</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- How It Works Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">How VaultLogic Works</h2>
+                <p class="lead text-muted">From question to verified answer in seconds</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                        1
+                    </div>
+                    <h5 class="fw-bold mb-3">Ask</h5>
+                    <p class="text-muted">Ask in plain language</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                        2
+                    </div>
+                    <h5 class="fw-bold mb-3">Retrieve</h5>
+                    <p class="text-muted">Your data stays secure</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                        3
+                    </div>
+                    <h5 class="fw-bold mb-3">Answer</h5>
+                    <p class="text-muted">Get precise answers</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="step-number bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                        4
+                    </div>
+                    <h5 class="fw-bold mb-3">Source</h5>
+                    <p class="text-muted">Verify with citations</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Comparison Section -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-10 mx-auto">
+                <h2 class="display-5 fw-bold text-center mb-5">Old Way vs VaultLogic's Way</h2>
+                
+                <div class="table-responsive">
+                    <table class="table table-borderless comparison-table">
+                        <thead>
+                            <tr>
+                                <th class="fw-bold">Feature</th>
+                                <th class="text-danger fw-bold">Old Way</th>
+                                <th class="text-primary fw-bold">Your Way</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="fw-semibold">Finding info</td>
+                                <td class="text-danger">Dig through folders, email, SharePoint</td>
+                                <td class="text-primary">Just ask in plain language</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Time</td>
+                                <td class="text-danger">Minutes–hours</td>
+                                <td class="text-primary">Seconds</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Accuracy</td>
+                                <td class="text-danger">Prone to error, missed context</td>
+                                <td class="text-primary">Exact extract with citation</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Security</td>
+                                <td class="text-danger">Cloud risk</td>
+                                <td class="text-primary">100% offline</td>
+                            </tr>
+                            <tr>
+                                <td class="fw-semibold">Audit readiness</td>
+                                <td class="text-danger">Manual cross-reference</td>
+                                <td class="text-primary">Instant, verifiable answer</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Testimonial Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <blockquote class="blockquote">
+                    <p class="display-6 mb-4">"We cut our SOP lookup time from 12 minutes to under 20 seconds — all without sending a single byte outside our network."</p>
+                    <footer class="blockquote-footer">
+                        <cite>Enterprise Customer</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Grid -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Bring your documents to life — securely</h2>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{{ url_for('contact') }}" class="btn btn-primary btn-lg">Get Started Today</a>
+                    <a href="{{ url_for('demo') }}" class="btn btn-outline-primary btn-lg">Request Demo</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card bg-white rounded-3 shadow-sm p-4 h-100">
+                    <div class="feature-icon bg-primary bg-opacity-10 text-primary rounded-3 d-inline-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-brain fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Powerful AI Document Intelligence</h5>
+                    <p class="text-muted">Transform your document workflows with AI that understands context, extracts insights, and maintains complete privacy.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card bg-white rounded-3 shadow-sm p-4 h-100">
+                    <div class="feature-icon bg-primary bg-opacity-10 text-primary rounded-3 d-inline-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-comments fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Intelligent Chat Interface</h5>
+                    <p class="text-muted">Ask natural language questions about your documents and receive instant, contextual answers with precise citations.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card bg-white rounded-3 shadow-sm p-4 h-100">
+                    <div class="feature-icon bg-primary bg-opacity-10 text-primary rounded-3 d-inline-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Advanced Analytics</h5>
+                    <p class="text-muted">Discover patterns, trends, and insights across your document library with AI-powered analytics and reporting.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card bg-white rounded-3 shadow-sm p-4 h-100">
+                    <div class="feature-icon bg-primary bg-opacity-10 text-primary rounded-3 d-inline-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Enterprise Security</h5>
+                    <p class="text-muted">Your documents never leave your infrastructure. Complete offline processing with enterprise-grade security controls.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card bg-white rounded-3 shadow-sm p-4 h-100">
+                    <div class="feature-icon bg-primary bg-opacity-10 text-primary rounded-3 d-inline-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-plug fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Seamless Integration</h5>
+                    <p class="text-muted">Deploy easily with existing document management systems and enterprise tools through our robust API.</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="feature-card bg-white rounded-3 shadow-sm p-4 h-100">
+                    <div class="feature-icon bg-primary bg-opacity-10 text-primary rounded-3 d-inline-flex align-items-center justify-content-center mb-3">
+                        <i class="fas fa-bolt fa-2x"></i>
+                    </div>
+                    <h5 class="fw-bold mb-3">Lightning Fast</h5>
+                    <p class="text-muted">Local GPU acceleration delivers instant responses without the latency of cloud-based solutions.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Stats Section -->
+<section class="py-5 bg-primary text-white">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="display-4 fw-bold mb-2">99.9%</div>
+                    <div class="h6">Accuracy Rate</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="display-4 fw-bold mb-2">&lt; 2s</div>
+                    <div class="h6">Response Time</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="display-4 fw-bold mb-2">500+</div>
+                    <div class="h6">Enterprise Customers</div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 mb-4">
+                <div class="stat-item">
+                    <div class="display-4 fw-bold mb-2">50M+</div>
+                    <div class="h6">Documents Processed</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Customer Testimonials -->
+<section class="py-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center mb-5">
+                <h2 class="display-5 fw-bold mb-3">Trusted by Industry Leaders</h2>
+                <p class="lead text-muted">See how organizations are transforming their document workflows with VaultLogic.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="testimonial-card bg-light rounded-3 p-4 h-100">
+                    <div class="mb-3">
+                        <i class="fas fa-quote-left text-primary fa-2x"></i>
+                    </div>
+                    <p class="mb-3">"VaultLogic transformed our compliance reporting. What used to take days now takes minutes, and we never worry about data security."</p>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="fw-bold">Sarah Chen</div>
+                            <small class="text-muted">Head of Compliance, TechCorp</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="testimonial-card bg-light rounded-3 p-4 h-100">
+                    <div class="mb-3">
+                        <i class="fas fa-quote-left text-primary fa-2x"></i>
+                    </div>
+                    <p class="mb-3">"The offline processing capability was exactly what we needed for our healthcare documents. Exceptional security and performance."</p>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="fw-bold">Dr. Michael Rodriguez</div>
+                            <small class="text-muted">CTO, MedSystem Solutions</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="testimonial-card bg-light rounded-3 p-4 h-100">
+                    <div class="mb-3">
+                        <i class="fas fa-quote-left text-primary fa-2x"></i>
+                    </div>
+                    <p class="mb-3">"Implementation was seamless and the ROI was immediate. Our legal team saves 15+ hours per week on document review."</p>
+                    <div class="d-flex align-items-center">
+                        <div>
+                            <div class="fw-bold">James Park</div>
+                            <small class="text-muted">Operations Director, LegalFirm LLC</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="py-5 bg-gradient-primary text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 mx-auto text-center">
+                <h2 class="display-5 fw-bold mb-3">Ready to Get Started?</h2>
+                <p class="lead mb-4">Join hundreds of enterprises who trust VaultLogic with their most sensitive documents. Start your free trial today.</p>
+                
+                <div class="row g-4 mb-4">
+                    <div class="col-md-4">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="fas fa-clock me-2"></i>
+                            <span>Deploy in under 24 hours</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="fas fa-headset me-2"></i>
+                            <span>Dedicated onboarding support</span>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="d-flex align-items-center justify-content-center">
+                            <i class="fas fa-money-back me-2"></i>
+                            <span>30-day money-back guarantee</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <a href="{{ url_for('contact') }}" class="btn btn-light btn-lg px-5">
+                    <i class="fas fa-rocket me-2"></i>Request Your Demo
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

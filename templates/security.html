@@ -1,0 +1,402 @@
+{% extends "base.html" %}
+
+{% block title %}Security & Compliance - VaultLogic{% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+    <!-- Hero Section -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4 fw-bold mb-4">Enterprise-Grade Security</h1>
+            <p class="lead text-muted">Built with security and compliance at its core, VaultLogic meets the strictest enterprise requirements.</p>
+        </div>
+    </div>
+
+    <!-- Security Overview -->
+    <div class="row g-5 mb-5">
+        <div class="col-lg-6">
+            <h2 class="fw-bold mb-4">Complete Security Coverage</h2>
+            <div class="security-feature mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="security-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                        <i class="fas fa-server"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-2">On-premise deployment</h5>
+                        <p class="text-muted">Complete control over your data with local infrastructure deployment</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="security-feature mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="security-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-2">Air-gapped networks</h5>
+                        <p class="text-muted">Isolated network environments for maximum security</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="security-feature mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="security-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                        <i class="fas fa-lock"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-2">Advanced encryption</h5>
+                        <p class="text-muted">Military-grade AES-256 encryption for all data</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="security-feature mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="security-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                        <i class="fas fa-users-cog"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-2">Role-based access</h5>
+                        <p class="text-muted">Granular permissions and access control</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="security-feature mb-4">
+                <div class="d-flex align-items-start">
+                    <div class="security-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                        <i class="fas fa-clipboard-list"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-2">Audit logging</h5>
+                        <p class="text-muted">Comprehensive activity tracking and reporting</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="security-feature">
+                <div class="d-flex align-items-start">
+                    <div class="security-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                        <i class="fas fa-trash-alt"></i>
+                    </div>
+                    <div>
+                        <h5 class="fw-bold mb-2">Zero data retention</h5>
+                        <p class="text-muted">No external data storage or retention policies</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="security-stats bg-light rounded-3 p-4">
+                <h3 class="fw-bold mb-4">Security by the Numbers</h3>
+                
+                <div class="stat-item mb-4">
+                    <div class="display-6 fw-bold text-primary">0</div>
+                    <div class="h6 text-muted">Security breaches since inception</div>
+                </div>
+                
+                <div class="stat-item mb-4">
+                    <div class="display-6 fw-bold text-primary">256-bit</div>
+                    <div class="h6 text-muted">AES encryption standard</div>
+                </div>
+                
+                <div class="stat-item mb-4">
+                    <div class="display-6 fw-bold text-primary">100%</div>
+                    <div class="h6 text-muted">Offline processing guarantee</div>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="display-6 fw-bold text-primary">24/7</div>
+                    <div class="h6 text-muted">Security monitoring</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Compliance Certifications -->
+    <section class="py-5 bg-light rounded-3 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">Compliance Certifications</h2>
+                    <p class="lead text-muted">VaultLogic maintains the highest industry standards for security and compliance.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-3 col-md-6">
+                    <div class="compliance-card bg-white rounded-3 shadow-sm p-4 text-center h-100">
+                        <div class="compliance-icon bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-certificate fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">SOC 2 Type II</h5>
+                        <p class="text-muted mb-3">Certified for security, availability, and confidentiality</p>
+                        <div class="badge bg-success">Certified</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="compliance-card bg-white rounded-3 shadow-sm p-4 text-center h-100">
+                        <div class="compliance-icon bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-user-shield fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">GDPR Compliant</h5>
+                        <p class="text-muted mb-3">Full data protection and privacy compliance</p>
+                        <div class="badge bg-success">Compliant</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="compliance-card bg-white rounded-3 shadow-sm p-4 text-center h-100">
+                        <div class="compliance-icon bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-heartbeat fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">HIPAA Ready</h5>
+                        <p class="text-muted mb-3">Healthcare industry compliance built-in</p>
+                        <div class="badge bg-success">Ready</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="compliance-card bg-white rounded-3 shadow-sm p-4 text-center h-100">
+                        <div class="compliance-icon bg-success bg-opacity-10 text-success rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                            <i class="fas fa-globe fa-2x"></i>
+                        </div>
+                        <h5 class="fw-bold mb-3">ISO 27001</h5>
+                        <p class="text-muted mb-3">Information security management certified</p>
+                        <div class="badge bg-success">Certified</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Security Architecture -->
+    <div class="row g-5 mb-5">
+        <div class="col-lg-12">
+            <h2 class="fw-bold text-center mb-5">Multi-Layer Security Architecture</h2>
+            
+            <div class="row g-4">
+                <div class="col-lg-4">
+                    <div class="security-layer bg-white border rounded-3 p-4 h-100">
+                        <div class="layer-header bg-primary bg-opacity-10 rounded-3 p-3 mb-3">
+                            <h5 class="fw-bold text-primary mb-0">
+                                <i class="fas fa-shield-alt me-2"></i>Application Layer
+                            </h5>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Secure authentication</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Input validation</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Session management</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Access controls</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="security-layer bg-white border rounded-3 p-4 h-100">
+                        <div class="layer-header bg-primary bg-opacity-10 rounded-3 p-3 mb-3">
+                            <h5 class="fw-bold text-primary mb-0">
+                                <i class="fas fa-server me-2"></i>Infrastructure Layer
+                            </h5>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Network segmentation</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Firewall protection</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Intrusion detection</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Physical security</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-4">
+                    <div class="security-layer bg-white border rounded-3 p-4 h-100">
+                        <div class="layer-header bg-primary bg-opacity-10 rounded-3 p-3 mb-3">
+                            <h5 class="fw-bold text-primary mb-0">
+                                <i class="fas fa-database me-2"></i>Data Layer
+                            </h5>
+                        </div>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Data encryption</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Backup security</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Access logging</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Data classification</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Encryption Details -->
+    <div class="row g-5 mb-5">
+        <div class="col-lg-6">
+            <h2 class="fw-bold mb-4">Advanced Encryption Standards</h2>
+            <div class="encryption-feature mb-4">
+                <h5 class="fw-bold text-primary mb-2">
+                    <i class="fas fa-lock me-2"></i>Data at Rest
+                </h5>
+                <p class="text-muted">AES-256 encryption for all stored documents and database content</p>
+            </div>
+            
+            <div class="encryption-feature mb-4">
+                <h5 class="fw-bold text-primary mb-2">
+                    <i class="fas fa-exchange-alt me-2"></i>Data in Transit
+                </h5>
+                <p class="text-muted">TLS 1.3 encryption for all network communications</p>
+            </div>
+            
+            <div class="encryption-feature mb-4">
+                <h5 class="fw-bold text-primary mb-2">
+                    <i class="fas fa-key me-2"></i>Key Management
+                </h5>
+                <p class="text-muted">Hardware Security Module (HSM) integration for key protection</p>
+            </div>
+            
+            <div class="encryption-feature">
+                <h5 class="fw-bold text-primary mb-2">
+                    <i class="fas fa-user-secret me-2"></i>Zero Knowledge
+                </h5>
+                <p class="text-muted">End-to-end encryption ensures VaultLogic cannot access your data</p>
+            </div>
+        </div>
+        
+        <div class="col-lg-6">
+            <div class="bg-light rounded-3 p-4">
+                <h3 class="fw-bold mb-4">Encryption Specifications</h3>
+                <table class="table table-borderless">
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">Algorithm:</td>
+                            <td>AES-256-GCM</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Key Size:</td>
+                            <td>256-bit</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Transport:</td>
+                            <td>TLS 1.3</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Key Rotation:</td>
+                            <td>Automatic</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">HSM Support:</td>
+                            <td>FIPS 140-2 Level 3</td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">Digital Signatures:</td>
+                            <td>RSA-4096 / ECDSA</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Security Monitoring -->
+    <section class="py-5 bg-light rounded-3 mb-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto text-center mb-5">
+                    <h2 class="display-5 fw-bold mb-3">24/7 Security Monitoring</h2>
+                    <p class="lead text-muted">Continuous monitoring and threat detection to protect your infrastructure.</p>
+                </div>
+            </div>
+            
+            <div class="row g-4">
+                <div class="col-lg-6">
+                    <div class="monitoring-feature bg-white rounded-3 p-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-eye text-primary me-2"></i>Real-time Monitoring
+                        </h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>System performance monitoring</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Security event detection</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Anomaly identification</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Automated alerting</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6">
+                    <div class="monitoring-feature bg-white rounded-3 p-4">
+                        <h5 class="fw-bold mb-3">
+                            <i class="fas fa-chart-line text-primary me-2"></i>Threat Intelligence
+                        </h5>
+                        <ul class="list-unstyled">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Global threat feeds</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Behavioral analysis</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Incident response</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Forensic capabilities</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators -->
+    <div class="row">
+        <div class="col-lg-8 mx-auto">
+            <h2 class="fw-bold text-center mb-5">Built by Security Experts</h2>
+            <div class="text-center mb-4">
+                <p class="lead text-muted">VaultLogic was founded by former enterprise security architects who understood the critical need for AI document intelligence that doesn't compromise on privacy or security.</p>
+            </div>
+            
+            <div class="row g-4 text-center">
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-stat">
+                        <div class="display-6 fw-bold text-primary">500+</div>
+                        <div class="h6 text-muted">Enterprise Customers</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-stat">
+                        <div class="display-6 fw-bold text-primary">99.9%</div>
+                        <div class="h6 text-muted">Uptime SLA</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-stat">
+                        <div class="display-6 fw-bold text-primary">50M+</div>
+                        <div class="h6 text-muted">Documents Processed</div>
+                    </div>
+                </div>
+                
+                <div class="col-lg-3 col-md-6">
+                    <div class="trust-stat">
+                        <div class="display-6 fw-bold text-primary">24/7</div>
+                        <div class="h6 text-muted">Expert Support</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="row mt-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <div class="bg-primary bg-opacity-10 rounded-3 p-5">
+                <h2 class="fw-bold mb-4">Experience Enterprise Security</h2>
+                <p class="lead text-muted mb-4">See how VaultLogic's security features protect your most sensitive documents.</p>
+                <div class="d-flex flex-wrap gap-3 justify-content-center">
+                    <a href="{{ url_for('demo') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-shield-alt me-2"></i>Try Security Demo
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-file-alt me-2"></i>Request Security Whitepaper
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

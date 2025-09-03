@@ -1,0 +1,297 @@
+{% extends "base.html" %}
+
+{% block title %}Contact Us - VaultLogic{% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+    <!-- Hero Section -->
+    <div class="row mb-5">
+        <div class="col-lg-8 mx-auto text-center">
+            <h1 class="display-4 fw-bold mb-4">Request Your Demo</h1>
+            <p class="lead text-muted">Join hundreds of enterprises who trust VaultLogic with their most sensitive documents. Start your free trial today.</p>
+        </div>
+    </div>
+
+    <div class="row g-5">
+        <!-- Contact Form -->
+        <div class="col-lg-8">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">
+                        <i class="fas fa-calendar-alt me-2"></i>Schedule Your Personalized Demo
+                    </h4>
+                </div>
+                <div class="card-body p-4">
+                    <form method="POST" class="needs-validation" novalidate>
+                        {{ form.hidden_tag() }}
+                        
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="{{ form.first_name.id }}" class="form-label fw-semibold">
+                                    {{ form.first_name.label.text }}
+                                </label>
+                                {{ form.first_name(class="form-control form-control-lg") }}
+                                {% if form.first_name.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.first_name.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="{{ form.last_name.id }}" class="form-label fw-semibold">
+                                    {{ form.last_name.label.text }}
+                                </label>
+                                {{ form.last_name(class="form-control form-control-lg") }}
+                                {% if form.last_name.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.last_name.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="{{ form.email.id }}" class="form-label fw-semibold">
+                                {{ form.email.label.text }}
+                            </label>
+                            {{ form.email(class="form-control form-control-lg", placeholder="john@company.com") }}
+                            {% if form.email.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.email.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label for="{{ form.company.id }}" class="form-label fw-semibold">
+                                    {{ form.company.label.text }}
+                                </label>
+                                {{ form.company(class="form-control form-control-lg", placeholder="Your Company") }}
+                                {% if form.company.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.company.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="col-md-6">
+                                <label for="{{ form.company_size.id }}" class="form-label fw-semibold">
+                                    {{ form.company_size.label.text }}
+                                </label>
+                                {{ form.company_size(class="form-select form-select-lg") }}
+                                {% if form.company_size.errors %}
+                                    <div class="invalid-feedback d-block">
+                                        {% for error in form.company_size.errors %}
+                                            {{ error }}
+                                        {% endfor %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="{{ form.message.id }}" class="form-label fw-semibold">
+                                {{ form.message.label.text }}
+                            </label>
+                            {{ form.message(class="form-control", rows="4", placeholder="Tell us about your document intelligence needs...") }}
+                            {% if form.message.errors %}
+                                <div class="invalid-feedback d-block">
+                                    {% for error in form.message.errors %}
+                                        {{ error }}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        </div>
+                        
+                        <div class="d-grid">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Request Demo
+                            </button>
+                        </div>
+                        
+                        <p class="text-muted text-center mt-3 small">
+                            By submitting this form, you agree to our 
+                            <a href="#" class="text-decoration-none">Privacy Policy</a> and 
+                            <a href="#" class="text-decoration-none">Terms of Service</a>.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Contact Information -->
+        <div class="col-lg-4">
+            <!-- Contact Benefits -->
+            <div class="card border-0 bg-light mb-4">
+                <div class="card-body p-4">
+                    <h5 class="fw-bold mb-4">What to Expect</h5>
+                    
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="contact-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Deploy in under 24 hours</h6>
+                            <p class="text-muted mb-0 small">Rapid deployment with full onboarding support</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start mb-3">
+                        <div class="contact-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                            <i class="fas fa-headset"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">Dedicated onboarding support</h6>
+                            <p class="text-muted mb-0 small">Personal guidance through setup and configuration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex align-items-start">
+                        <div class="contact-icon bg-primary bg-opacity-10 text-primary rounded-circle d-flex align-items-center justify-content-center me-3">
+                            <i class="fas fa-money-bill-wave"></i>
+                        </div>
+                        <div>
+                            <h6 class="fw-bold mb-1">30-day money-back guarantee</h6>
+                            <p class="text-muted mb-0 small">Risk-free trial with full refund if not satisfied</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="card border-0 bg-primary text-white">
+                <div class="card-body p-4 text-center">
+                    <h5 class="fw-bold mb-4">Trusted by Industry Leaders</h5>
+                    
+                    <div class="row g-3 mb-4">
+                        <div class="col-6">
+                            <div class="contact-stat">
+                                <div class="display-6 fw-bold">500+</div>
+                                <small>Enterprise Customers</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="contact-stat">
+                                <div class="display-6 fw-bold">99.9%</div>
+                                <small>Uptime SLA</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="contact-stat">
+                                <div class="display-6 fw-bold">50M+</div>
+                                <small>Documents Processed</small>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="contact-stat">
+                                <div class="display-6 fw-bold">24/7</div>
+                                <small>Expert Support</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="d-flex justify-content-center gap-2">
+                        <span class="badge bg-light text-dark">ISO 27001 Certified</span>
+                        <span class="badge bg-light text-dark">Industry Leader</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Security Badges -->
+            <div class="mt-4 text-center">
+                <h6 class="fw-bold mb-3">Security & Compliance</h6>
+                <div class="d-flex flex-wrap justify-content-center gap-2">
+                    <div class="badge bg-success fs-6 px-3 py-2">
+                        <i class="fas fa-shield-check me-1"></i>SOC 2 Compliant
+                    </div>
+                    <div class="badge bg-success fs-6 px-3 py-2">
+                        <i class="fas fa-user-shield me-1"></i>GDPR Ready
+                    </div>
+                    <div class="badge bg-success fs-6 px-3 py-2">
+                        <i class="fas fa-heartbeat me-1"></i>HIPAA Ready
+                    </div>
+                    <div class="badge bg-success fs-6 px-3 py-2">
+                        <i class="fas fa-server me-1"></i>On-Premise
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Alternative Contact Methods -->
+    <div class="row mt-5">
+        <div class="col-12">
+            <div class="bg-light rounded-3 p-5 text-center">
+                <h3 class="fw-bold mb-4">Prefer a Different Approach?</h3>
+                <div class="row g-4">
+                    <div class="col-lg-4">
+                        <div class="alternative-contact">
+                            <div class="alt-icon bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                                <i class="fas fa-video fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Watch Demo Video</h5>
+                            <p class="text-muted mb-3">See VaultLogic in action with our comprehensive product walkthrough</p>
+                            <a href="{{ url_for('demo') }}" class="btn btn-outline-primary">
+                                <i class="fas fa-play me-2"></i>Watch Now
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="alternative-contact">
+                            <div class="alt-icon bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                                <i class="fas fa-mouse-pointer fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Try Interactive Demo</h5>
+                            <p class="text-muted mb-3">Experience our compliance handbook chat interface firsthand</p>
+                            <a href="{{ url_for('demo') }}" class="btn btn-outline-primary">
+                                <i class="fas fa-external-link-alt me-2"></i>Try Demo
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-4">
+                        <div class="alternative-contact">
+                            <div class="alt-icon bg-primary bg-opacity-10 text-primary rounded-circle d-inline-flex align-items-center justify-content-center mb-3">
+                                <i class="fas fa-file-download fa-2x"></i>
+                            </div>
+                            <h5 class="fw-bold mb-2">Download Resources</h5>
+                            <p class="text-muted mb-3">Get our security whitepaper and technical documentation</p>
+                            <a href="#" class="btn btn-outline-primary">
+                                <i class="fas fa-download me-2"></i>Download
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Testimonial -->
+    <div class="row mt-5">
+        <div class="col-lg-8 mx-auto">
+            <div class="testimonial-highlight bg-white border rounded-3 shadow-sm p-5 text-center">
+                <div class="mb-4">
+                    <i class="fas fa-quote-left text-primary fa-3x"></i>
+                </div>
+                <blockquote class="blockquote">
+                    <p class="mb-4">"VaultLogic transformed our compliance reporting. What used to take days now takes minutes, and we never worry about data security. The onboarding process was seamless and the support team was exceptional."</p>
+                    <footer class="blockquote-footer">
+                        <strong>Sarah Chen</strong>, Head of Compliance at <cite title="TechCorp">TechCorp</cite>
+                    </footer>
+                </blockquote>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
