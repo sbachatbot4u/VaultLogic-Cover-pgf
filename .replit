@@ -5,8 +5,8 @@ channel = "stable-25_05"
 packages = ["openssl", "postgresql"]
 
 [deployment]
-deploymentTarget = "static"
-publicDir = "https://2790078d-75f7-4d6a-9c1c-cb917364ec58-00-edr84ukt8k8y.picard.replit.dev/"
+deploymentTarget = "cloudrun"
+run = ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 --reuse-port main:app"]
 
 [workflows]
 runButton = "Project"
