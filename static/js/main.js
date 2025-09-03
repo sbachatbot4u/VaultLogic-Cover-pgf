@@ -164,17 +164,26 @@
         if (!contactForm) return;
 
         const submitButton = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitButton ? submitButton.innerHTML : '';
+        const originalContent = submitButton ? submitButton.cloneNode(true) : null;
 
         contactForm.addEventListener('submit', function(e) {
             if (submitButton && contactForm.checkValidity()) {
-                submitButton.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
+                // Clear existing content and add loading spinner safely
+                submitButton.innerHTML = '';
+                const spinner = document.createElement('i');
+                spinner.className = 'fas fa-spinner fa-spin me-2';
+                submitButton.appendChild(spinner);
+                submitButton.appendChild(document.createTextNode('Sending...'));
                 submitButton.disabled = true;
                 
                 // Re-enable button after 3 seconds (in case of redirect)
                 setTimeout(() => {
-                    if (submitButton) {
-                        submitButton.innerHTML = originalText;
+                    if (submitButton && originalContent) {
+                        submitButton.innerHTML = '';
+                        // Restore original content safely
+                        while (originalContent.firstChild) {
+                            submitButton.appendChild(originalContent.firstChild.cloneNode(true));
+                        }
                         submitButton.disabled = false;
                     }
                 }, 3000);
