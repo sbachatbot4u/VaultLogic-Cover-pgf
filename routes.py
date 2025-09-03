@@ -48,21 +48,27 @@ def chat():
     if chat_form.validate_on_submit():
         question = chat_form.question.data
         
-        # Search for answers in the compliance handbook
-        results = search_handbook(question)
+        if question:
+            # Search for answers in the compliance handbook
+            results = search_handbook(question)
         
-        if results:
-            result = results[0]
-            return jsonify({
-                'success': True,
-                'question': question,
-                'answer': result.answer,
-                'sources': result.sources or []
-            })
+            if results:
+                result = results[0]
+                return jsonify({
+                    'success': True,
+                    'question': question,
+                    'answer': result.answer,
+                    'sources': result.sources or []
+                })
+            else:
+                return jsonify({
+                    'success': False,
+                    'error': 'No relevant information found.'
+                })
         else:
             return jsonify({
                 'success': False,
-                'error': 'No relevant information found.'
+                'error': 'Question is required.'
             })
     
     return jsonify({

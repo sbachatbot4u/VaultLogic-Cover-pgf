@@ -1,19 +1,19 @@
-from dataclasses import dataclass
-from typing import List, Dict
+from dataclasses import dataclass, field
+from typing import List, Dict, Optional
 
 @dataclass
 class ComplianceSection:
     title: str
     content: str
     page_number: int
-    subsections: List[str] = None
+    subsections: List[str] = field(default_factory=list)
 
 @dataclass
 class ChatMessage:
     question: str
     answer: str
-    sources: List[str] = None
-    timestamp: str = None
+    sources: List[str] = field(default_factory=list)
+    timestamp: Optional[str] = None
 
 @dataclass
 class DemoRequest:
