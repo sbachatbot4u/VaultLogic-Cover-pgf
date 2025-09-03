@@ -46,8 +46,27 @@
                 </ul>
                 
                 <div class="navbar-nav">
-                    <a class="btn btn-outline-light me-2" href="{{ url_for('contact') }}">Request Demo</a>
-                    <a class="btn btn-primary" href="{{ url_for('contact') }}">Start Free Trial</a>
+                    {% if current_user.is_authenticated %}
+                        <div class="navbar-nav me-3">
+                            <span class="navbar-text me-3">
+                                {% if current_user.profile_image_url %}
+                                    <img src="{{ current_user.profile_image_url }}" alt="Profile" class="rounded-circle me-2" width="24" height="24" style="object-fit: cover;">
+                                {% else %}
+                                    <i class="fas fa-user-circle me-2"></i>
+                                {% endif %}
+                                Hi, {{ current_user.first_name or current_user.email or 'User' }}!
+                            </span>
+                        </div>
+                        <a class="btn btn-outline-light" href="{{ url_for('replit_auth.logout') }}">
+                            <i class="fas fa-sign-out-alt me-1"></i>Log Out
+                        </a>
+                    {% else %}
+                        <a class="btn btn-outline-light me-2" href="{{ url_for('contact') }}">Request Demo</a>
+                        <a class="btn btn-outline-light me-2" href="{{ url_for('replit_auth.login') }}">
+                            <i class="fas fa-sign-in-alt me-1"></i>Log In
+                        </a>
+                        <a class="btn btn-primary" href="{{ url_for('contact') }}">Start Free Trial</a>
+                    {% endif %}
                 </div>
             </div>
         </div>
