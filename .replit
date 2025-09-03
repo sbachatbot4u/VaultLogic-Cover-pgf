@@ -5,8 +5,8 @@ channel = "stable-25_05"
 packages = ["openssl", "postgresql"]
 
 [deployment]
-deploymentTarget = "cloudrun"
-run = ["sh", "-c", "VaultLogic"]
+deploymentTarget = "static"
+publicDir = "VaultLogic"
 
 [workflows]
 runButton = "Project"
