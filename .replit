@@ -6,7 +6,7 @@ packages = ["openssl", "postgresql"]
 
 [deployment]
 deploymentTarget = "cloudrun"
-run = ["sh", "-c", "open"]
+run = ["sh", "-c", "gunicorn --bind 0.0.0.0:5000 --reuse-po
 
 [workflows]
 runButton = "Project"
