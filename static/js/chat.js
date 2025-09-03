@@ -151,8 +151,12 @@
         
         if (isError) {
             messageContent.classList.add('text-danger');
-            messageContent.innerHTML = `<i class="fas fa-exclamation-triangle me-2"></i>${content}`;
+            const icon = document.createElement('i');
+            icon.className = 'fas fa-exclamation-triangle me-2';
+            messageContent.appendChild(icon);
+            messageContent.appendChild(document.createTextNode(content));
         } else {
+            // Use innerHTML only for trusted, formatted content from compliance handbook
             messageContent.innerHTML = formatMessageContent(content);
         }
         
