@@ -156,8 +156,9 @@
             messageContent.appendChild(icon);
             messageContent.appendChild(document.createTextNode(content));
         } else {
-            // Use innerHTML only for trusted, formatted content from compliance handbook
-            messageContent.innerHTML = formatMessageContent(content);
+            // Safely create formatted content using DOM methods
+            const formattedContent = formatMessageContentSafe(content);
+            messageContent.appendChild(formattedContent);
         }
         
         messageDiv.appendChild(messageContent);
@@ -207,8 +208,53 @@
         scrollToBottom();
     }
 
+    function formatMessageContentSafe(content) {
+        // Create a document fragment to safely build content
+        const fragment = document.createDocumentFragment();
+        
+        // Split content by markdown patterns while preserving formatting info
+        const parts = content.split(/(\*\*.*?\*\*|\*.*?\*|`.*?`|https?:\/\/[^\s]+|\n)/g);
+        
+        parts.forEach(part => {
+            if (!part) return;
+            
+            if (part.startsWith('**') && part.endsWith('**')) {
+                // Bold text
+                const strong = document.createElement('strong');
+                strong.textContent = part.slice(2, -2);
+                fragment.appendChild(strong);
+            } else if (part.startsWith('*') && part.endsWith('*') && !part.startsWith('**')) {
+                // Italic text
+                const em = document.createElement('em');
+                em.textContent = part.slice(1, -1);
+                fragment.appendChild(em);
+            } else if (part.startsWith('`') && part.endsWith('`')) {
+                // Code text
+                const code = document.createElement('code');
+                code.textContent = part.slice(1, -1);
+                fragment.appendChild(code);
+            } else if (part.match(/^https?:\/\/[^\s]+$/)) {
+                // URL link
+                const link = document.createElement('a');
+                link.href = part;
+                link.textContent = part;
+                link.target = '_blank';
+                link.rel = 'noopener noreferrer';
+                fragment.appendChild(link);
+            } else if (part === '\n') {
+                // Line break
+                fragment.appendChild(document.createElement('br'));
+            } else {
+                // Regular text
+                fragment.appendChild(document.createTextNode(part));
+            }
+        });
+        
+        return fragment;
+    }
+
     function formatMessageContent(content) {
-        // Basic markdown-like formatting
+        // Basic markdown-like formatting (legacy function kept for compatibility)
         let formatted = content
             .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
             .replace(/\*(.*?)\*/g, '<em>$1</em>')
