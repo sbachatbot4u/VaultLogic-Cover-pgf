@@ -34,6 +34,7 @@ localPort = 5000
 externalPort = 80
 
 [agent]
+integrations = ["flask_stripe==1.0.0"]
 
 [objectStorage]
 defaultBucketID = "replit-objstore-ccfca435-f8c8-41b2-b3b6-4d21a219d6c5"
