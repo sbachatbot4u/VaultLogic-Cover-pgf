@@ -210,26 +210,10 @@ def logged_in(blueprint, token):
                 }
             )
         else:
-            # Fallback: if we can't get the public key, do basic validation
-            # This maintains functionality while logging the issue
-            app.logger.warning("Could not fetch public key for JWT verification, using fallback validation")
-            user_claims = jwt.decode(
-                token['id_token'],
-                options={
-                    "verify_signature": False,
-                    "verify_iss": True,
-                    "verify_exp": True,
-                    "verify_aud": False
-                },
-                issuer=issuer_url,
-                algorithms=["RS256"]
-            )
-            
-            # Additional validation when signature verification fails
-            required_claims = ['sub', 'iss', 'exp']
-            for claim in required_claims:
-                if claim not in user_claims:
-                    raise jwt.InvalidTokenError(f"Missing required claim: {claim}")
+            # Security Fix: Fail securely when public key cannot be fetched
+            # Rather than bypassing signature verification, reject the authentication
+            app.logger.error("Authentication failed: Cannot verify JWT signature without public key")
+            raise jwt.InvalidTokenError("JWT signature verification failed: Public key unavailable")
                     
     except jwt.InvalidTokenError as e:
         # Log the error and redirect to error page
