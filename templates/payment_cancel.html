@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}Payment Cancelled - VaultLogic{% endblock %}
+
+{% block content %}
+<div class="container py-5 mt-5">
+    <div class="row">
+        <div class="col-lg-8 mx-auto text-center">
+            <div class="bg-light rounded-3 p-5">
+                <div class="text-warning mb-4">
+                    <i class="fas fa-exclamation-triangle fa-4x"></i>
+                </div>
+                
+                <h1 class="display-5 fw-bold text-warning mb-4">Payment Cancelled</h1>
+                
+                <p class="lead mb-4">
+                    Your payment was cancelled. No charges have been made to your account.
+                </p>
+                
+                <div class="bg-primary bg-opacity-10 rounded-3 p-4 mb-4">
+                    <h5 class="fw-bold mb-3">Still Interested?</h5>
+                    <p class="mb-3">
+                        We understand that choosing the right solution for your organization is important. 
+                        Our team is here to help answer any questions you might have.
+                    </p>
+                    <ul class="list-unstyled text-start">
+                        <li class="mb-2">
+                            <i class="fas fa-calendar text-primary me-2"></i>
+                            Schedule a free consultation to discuss your needs
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-play text-primary me-2"></i>
+                            Try our interactive demo to see VaultLogic in action
+                        </li>
+                        <li class="mb-2">
+                            <i class="fas fa-phone text-primary me-2"></i>
+                            Speak with our sales team about custom pricing
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="d-grid gap-2 d-md-flex justify-content-md-center">
+                    <a href="{{ url_for('pricing') }}" class="btn btn-primary btn-lg">
+                        <i class="fas fa-arrow-left me-2"></i>Return to Pricing
+                    </a>
+                    <a href="{{ url_for('contact') }}" class="btn btn-outline-primary btn-lg">
+                        <i class="fas fa-calendar me-2"></i>Schedule Demo
+                    </a>
+                    <a href="{{ url_for('demo') }}" class="btn btn-outline-secondary btn-lg">
+                        <i class="fas fa-play me-2"></i>Try Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
