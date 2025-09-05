@@ -5,6 +5,19 @@ from compliance_data import search_handbook, PREDEFINED_QA, COMPLIANCE_HANDBOOK
 from replit_auth import require_login, make_replit_blueprint
 from flask_login import current_user
 import logging
+import stripe
+import os
+
+# Configure Stripe
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY')
+
+# Get domain for Stripe redirects
+def get_domain():
+    if os.environ.get('REPLIT_DEPLOYMENT') != '':
+        return os.environ.get('REPLIT_DEV_DOMAIN')
+    else:
+        domains = os.environ.get('REPLIT_DOMAINS', '')
+        return domains.split(',')[0] if domains else 'localhost:5000'
 
 # Register the Replit Auth blueprint
 app.register_blueprint(make_replit_blueprint(), url_prefix="/auth")
@@ -98,6 +111,89 @@ def get_predefined_question():
         'answer': question.answer,
         'sources': question.sources
     })
+
+@app.route('/create-checkout-session', methods=['POST'])
+def create_checkout_session():
+    """Create Stripe checkout session"""
+    try:
+        # Get the plan from the request
+        plan = request.form.get('plan')
+        
+        # Define plan prices (these would typically come from your database or config)
+        plan_prices = {
+            'starter': {
+                'price_id': 'price_starter_monthly',  # Replace with actual Stripe price ID
+                'name': 'Starter Plan',
+                'amount': 36000,  # $360 in cents
+            },
+            'professional': {
+                'price_id': 'price_professional_monthly',  # Replace with actual Stripe price ID
+                'name': 'Professional Plan', 
+                'amount': 62050,  # $620.50 in cents
+            }
+        }
+        
+        if plan not in plan_prices:
+            flash('Invalid plan selected', 'error')
+            return redirect(url_for('pricing'))
+            
+        domain = get_domain()
+        
+        if not domain:
+            flash('Payment configuration error. Please contact support.', 'error')
+            return redirect(url_for('pricing'))
+        
+        # Create checkout session
+        checkout_session = stripe.checkout.Session.create(
+            line_items=[{
+                'price_data': {
+                    'currency': 'usd',
+                    'product_data': {
+                        'name': plan_prices[plan]['name'],
+                        'description': f'VaultLogic {plan.title()} Plan - Monthly subscription',
+                    },
+                    'unit_amount': plan_prices[plan]['amount'],
+                    'recurring': {
+                        'interval': 'month',
+                    },
+                },
+                'quantity': 1,
+            }],
+            mode='subscription',
+            success_url=f'https://{domain}/payment/success?session_id={{CHECKOUT_SESSION_ID}}',
+            cancel_url=f'https://{domain}/payment/cancel',
+            automatic_tax={'enabled': True},
+            customer_creation='always',
+            billing_address_collection='required',
+        )
+        
+        return redirect(checkout_session.url, code=303)
+        
+    except Exception as e:
+        logging.error(f"Stripe checkout error: {str(e)}")
+        flash('Payment processing error. Please try again.', 'error')
+        return redirect(url_for('pricing'))
+
+@app.route('/payment/success')
+def payment_success():
+    """Handle successful payment"""
+    session_id = request.args.get('session_id')
+    
+    if session_id:
+        try:
+            # Retrieve the checkout session
+            session = stripe.checkout.Session.retrieve(session_id)
+            return render_template('payment_success.html', session=session)
+        except Exception as e:
+            logging.error(f"Error retrieving session: {str(e)}")
+            flash('Unable to verify payment. Please contact support.', 'error')
+    
+    return render_template('payment_success.html')
+
+@app.route('/payment/cancel')
+def payment_cancel():
+    """Handle cancelled payment"""
+    return render_template('payment_cancel.html')
 
 @app.errorhandler(404)
 def not_found_error(error):
