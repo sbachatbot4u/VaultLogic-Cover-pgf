@@ -2,7 +2,7 @@ modules = ["python-3.11"]
 
 [nix]
 channel = "stable-25_05"
-packages = ["openssl", "postgresql", "cosmic-comp", "python312Packages.cleanlab"]
+packages = ["cargo", "cosmic-comp", "libiconv", "libxcrypt", "openssl", "pkg-config", "postgresql", "python312Packages.cleanlab", "rustc"]
 
 [deployment]
 deploymentTarget = "cloudrun"
@@ -34,4 +34,3 @@ localPort = 5000
 externalPort = 80
 
 [agent]
-integrations = ["python_log_in_with_replit==1.0.0", "python_database==1.0.0"]
